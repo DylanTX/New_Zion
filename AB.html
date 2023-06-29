@@ -12,16 +12,17 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            transition: 1s;
+            position: relative;
+            overflow: hidden;
         }
         h1, h2, h3, p {
             text-align: center;
         }
         h1 {
-            margin-top: 0;
+            margin-top: 1em;
         }
         h2 {
-            color: lightblue;
+            color: #00FFFF;
         }
         form {
             margin-top: 2em;
@@ -29,26 +30,46 @@
         input[type="text"], input[type="password"] {
             background-color: #000;
             color: red;
+            border: none;
+            border-bottom: 2px solid red;
         }
         .hidden {
             display: none;
+            opacity: 0;
+            transition: opacity 1s;
         }
-        .visible {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .show {
+            opacity: 1;
+            transition: opacity 1s;
+        }
+        #background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            transition: 1s;
+            z-index: -1;
+            opacity: 0.5;
+            overflow: hidden;
+            color: lime;
+        }
+        #background p {
+            position: absolute;
+            transform: translateY(-100%);
+            animation: move 5s linear infinite;
+            opacity: 0.5;
+        }
+        @keyframes move {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
     </style>
 </head>
 <body>
-    <div id="login-page" class="visible">
+    <div id="background">
+        <p id="background-text">Loading...</p>
+    </div>
+    <div id="login-page" class="show">
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
         <form id="login-form">
@@ -73,18 +94,9 @@
         <h3>Follow the blue when the rooster crows</h3>
     </div>
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('login-page').classList.remove('visible');
-            document.getElementById('login-page').classList.add('hidden');
-            document.getElementById('cryptogram-page').classList.remove('hidden');
-            document.getElementById('cryptogram-page').classList.add('visible');
-        });
+        var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.';
+        var index = 0;
 
-        document.getElementById('answer-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var answer = document.getElementById('answer').value;
-            if (answer.toLowerCase() === "turn up the sunshine") {
-                document.getElementById('cryptogram-page').classList.remove('visible');
-                document.getElementById('cryptogram-page').classList.add('hidden');
-                document.getElementById('clue-page').classList.remove('hidden
+        setInterval(function() {
+            document.getElementById('background-text').textContent = lorem.slice(0, index);
+            index = (index + 1)
