@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Clue Page</title>
+</head>
+<body>
+    <h1>Enter the Secret Phrase</h1>
+    <input type="text" id="secretPhrase">
+    <button onclick="checkPhrase()">Submit</button>
+    <p id="result"></p>
+
+    <script>
+        function checkPhrase() {
+            var enteredPhrase = document.getElementById('secretPhrase').value;
+            var resultElement = document.getElementById('result');
+
+            if (enteredPhrase.toUpperCase() === 'TURN UP THE SUNSHINE') {
+                resultElement.textContent = "Congratulations! Here is your clue: [insert next clue here]";
+                resultElement.style.color = 'green';
+            } else {
+                resultElement.textContent = "Sorry, that's not the correct phrase. Try again.";
+                resultElement.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
