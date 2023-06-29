@@ -27,9 +27,17 @@
             background-color: black;
             color: red;
             text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
             width: 50%;
+        }
+        
+        .submit-button {
+            width: 100%;
+            height: 50px;
+            background-color: #55acee;
+            color: black;
+            font-size: 2em;
+            border-radius: 5px;
         }
         
         h2 {
@@ -44,7 +52,7 @@
         <form id="login-form">
             <input type="text" class="text-input" id="username" name="username"><br>
             <input type="password" class="text-input" id="password" name="password"><br>
-            <input type="submit" value="Log in">
+            <input type="submit" class="submit-button" value="Log in">
         </form>
     </div>
     <div id="cryptogram-page" class="hidden">
@@ -52,7 +60,7 @@
         <p>XYPZ YR XIY WYWRWMKI</p>
         <form id="answer-form">
             <input type="text" class="text-input" id="answer" name="answer"><br>
-            <input type="submit" value="Submit">
+            <input type="submit" class="submit-button" value="Submit">
         </form>
         <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
     </div>
