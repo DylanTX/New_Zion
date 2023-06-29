@@ -1,8 +1,7 @@
-<!-- Login Page -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
+    <title>Secret Service Super Top Secret Website</title>
     <style>
         body {
             background-color: #000;
@@ -20,49 +19,38 @@
         form {
             margin-top: 2em;
         }
-    </style>
-</head>
-<body>
-    <h1>Secret Service Super Top Secret Website</h1>
-    <h2>Pay no attention to this website</h2>
-    <form action="cryptogram.html">
-        <label for="username">Username: </label>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password: </label>
-        <input type="password" id="password" name="password"><br>
-        <input type="submit" value="Log in">
-    </form>
-</body>
-</html>
-
-<!-- Cryptogram Page -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cryptogram</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        form {
-            margin-top: 2em;
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <h1>Decode the Cryptogram</h1>
-    <p>Your cryptogram here</p>
-    <form>
-        <label for="answer">Your Answer: </label>
-        <input type="text" id="answer" name="answer"><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div id="login-page">
+        <h1>Secret Service Super Top Secret Website</h1>
+        <h2>Pay no attention to this website</h2>
+        <form id="login-form">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
+    <div id="cryptogram-page" class="hidden">
+        <h1>Decode the Cryptogram</h1>
+        <p>XYPZ YR XIY WYWRWMKI</p>
+        <form id="answer-form">
+            <label for="answer">Your Answer: </label>
+            <input type="text" id="answer" name="answer"><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('cryptogram-page').classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
