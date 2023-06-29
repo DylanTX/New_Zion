@@ -33,12 +33,12 @@
             color: white;
             font-size: 20px;
             overflow: hidden;
-            animation: flow 10s linear infinite;
+            animation: flow 60s linear infinite; /* Adjust time for longer text */
             line-height: 26px;
-            left: 10%;
-            right: 10%;
-            top: 10%;
-            bottom: 10%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
         }
         @keyframes flow {
             0% { transform: translateY(100%); }
@@ -68,29 +68,55 @@
 <body>
     <!-- add your moving background text here -->
     <pre class="background-text">
-        function helloWorld() {
-            console.log('Hello, World!');
-        }
+function helloWorld() {
+    console.log('Hello, World!');
+}
 
-        helloWorld();
+helloWorld();
 
-        /* More code here */
-    </pre>
+// Other random code lines
 
-    <div id="login-page">
-        <h1>Secret Service Super Top Secret Website</h1>
-        <h2>Pay no attention to this website</h2>
-        <form id="login-form">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="Log in">
-        </form>
-    </div>
-    <div id="cryptogram-page" class="hidden">
-        <h1>Decode the Cryptogram</h1>
-        <p>XYPZ YR XIY WYWRWMKI</p>
-        <form id="answer-form">
-            <label for="answer">Your Answer: </label>
-            <input type="text" id="answer" name="
+var x = 10;
+var y = 20;
+var z = x + y;
+console.log(z);
+
+function addNumbers(a, b) {
+    return a + b;
+}
+
+var sum = addNumbers(5, 10);
+console.log(sum);
+
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+var fruits = ["apple", "banana", "cherry"];
+fruits.forEach(function(fruit) {
+    console.log(fruit);
+});
+
+var person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30
+};
+
+console.log(person.firstName);
+
+function greet(name) {
+    return "Hello, " + name;
+}
+
+var greeting = greet("Alice");
+console.log(greeting);
+
+var numbers = [1, 2, 3, 4, 5];
+var squaredNumbers = numbers.map(function(number) {
+    return number * number;
+});
+
+console.log(squaredNumbers);
+
+// More and more lines of meaningless code...
