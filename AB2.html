@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Service Super Top Secret Website</title>
+    <style>
+        body {
+            background-color: #000;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1, h2, h3, p {
+            text-align: center;
+        }
+        form {
+            margin-top: 2em;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-page">
+        <h1>Secret Service Super Top Secret Website</h1>
+        <h2>Pay no attention to this website</h2>
+        <form id="login-form">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
+    <div id="cryptogram-page" class="hidden">
+        <h1>Decode the Cryptogram</h1>
+        <p>XYPZ YR XIY WYWRWMKI</p>
+        <form id="answer-form">
+            <label for="answer">Your Answer: </label>
+            <input type="text" id="answer" name="answer"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
+    </div>
+    <div id="clue-page" class="hidden">
+        <h3>Follow the blue when the rooster crows</h3>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('cryptogram-page').classList.remove('hidden');
+            });
+
+            document.getElementById('answer-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var answer = document.getElementById('answer').value;
+                if (answer.toLowerCase() === "turn up the sunshine") {
+                    document.getElementById('cryptogram-page').classList.add('hidden');
+                    document.getElementById('clue-page').classList.remove('hidden');
+                } else {
+                    document.getElementById('error-message').classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
