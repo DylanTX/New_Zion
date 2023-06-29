@@ -41,6 +41,9 @@
             font-size: 1.2em;
             text-shadow: 1px 1px 2px #000000;
         }
+        #cryptogram {
+            display: none;
+        }
         #clue {
             display: none;
         }
@@ -49,6 +52,12 @@
 <body>
     <h1>Secret Service Super Top Secret Website</h1>
     <h2>Pay no attention to this website</h2>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" value="Log in">
+        <p id="message"></p>
+    </form>
     <div id="cryptogram">
         <h2>Decode this message:</h2>
         <p>GIVQA VP IXY WXTWMWOTI</p>
@@ -60,6 +69,20 @@
     </div>
 
     <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === 'Mark' && password === 'Miller') {
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('cryptogram').style.display = 'block';
+            } else {
+                document.getElementById('message').textContent = 'Incorrect username or password.';
+            }
+        });
+
         document.getElementById('answerForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
