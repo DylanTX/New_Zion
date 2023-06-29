@@ -72,12 +72,12 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
             if (username === 'Mark' && password === 'Miller') {
-                return true;
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('cryptogram-page').style.display = 'block';
             } else {
                 return false;
             }
         }
     </script>
 </body>
-    
 </html>
