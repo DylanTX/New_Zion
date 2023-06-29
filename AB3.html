@@ -12,82 +12,45 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            overflow: hidden; /* hide the overflow */
-            position: relative; /* allow the coding effect to be placed behind content */
-        }
-        /* add the coding effect */
-        .coding-effect {
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 2em;
-            color: white;
-            white-space: nowrap;
-            overflow: hidden;
-            transform: translateY(-100%);
-            animation: typing 10s steps(40, end) infinite, blink-caret .75s step-end infinite;
-        }
-        /* typing animation */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        /* cursor blinking animation */
-        @keyframes blink-caret {
-            50% { border-color: transparent }
+            position: relative; /* Allows coding background to stay behind other elements */
+            overflow: hidden; /* Keeps any content outside of the body from being visible */
         }
         h1, h2, h3, p {
             text-align: center;
+            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
-        form {
-            margin-top: 2em;
+        .background-text {
+            position: absolute;
+            white-space: pre;
+            font-family: 'Courier New', monospace;
+            color: white;
+            font-size: 20px;
+            overflow: hidden;
+            animation: flow 10s linear infinite;
+            line-height: 26px;
+            left: 10%;
+            right: 10%;
+            top: 10%;
+            bottom: 10%;
         }
-        .hidden {
-            display: none;
+        @keyframes flow {
+            0% { transform: translateY(100%); }
+            100% { transform: translateY(-100%); }
         }
-        input[type="text"], input[type="password"] {
-            background-color: #000;
-            color: red;
-            border: 1px solid lime;
-        }
-        input[type="submit"] {
-            background-color: lime;
-            color: #000;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-        }
-        input[type="submit"]:hover {
-            background-color: #00ff00;
-        }
+        /* rest of your styles */
     </style>
 </head>
 <body>
-    <!-- coding effect -->
-    <div class="coding-effect">var x = "Hello, World!"; function hello() { alert(x); }</div>
-    
-    <div id="login-page">
-        <h1>Secret Service Super Top Secret Website</h1>
-        <h2>Pay no attention to this website</h2>
-        <form id="login-form">
-            <label for="username">Username: </label>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"><br>
-            <input type="submit" value="Log in">
-        </form>
-    </div>
-    <div id="cryptogram-page" class="hidden">
-        <h1>Decode the Cryptogram</h1>
-        <p>XYPZ YR XIY WYWRWMKI</p>
-        <form id="answer-form">
-            <label for="answer">Your Answer: </label>
-            <input type="text" id="answer" name="answer"><br>
-            <input type="submit" value="Submit">
-        </form>
-        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
-    </div>
-    <div id="clue-page" class="hidden">
-        <h3>Follow the blue when the rooster crows</h3>
-    </div>
-    <
+    <!-- add your moving background text here -->
+    <pre class="background-text">
+        function helloWorld() {
+            console.log('Hello, World!');
+        }
+
+        helloWorld();
+
+        /* More code here */
+    </pre>
+    <!-- rest of your HTML -->
+</body>
+</html>
