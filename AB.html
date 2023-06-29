@@ -32,11 +32,11 @@
         }
         
         .submit-button {
-            width: 100%;
+            width: 80%;
             height: 50px;
             background-color: #55acee;
             color: black;
-            font-size: 2em;
+            font-size: 1.5em;
             border-radius: 5px;
         }
         
@@ -50,8 +50,8 @@
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
         <form id="login-form" onsubmit="return validateLogin()">
-            <input type="text" class="text-input" id="username" name="username"><br>
-            <input type="password" class="text-input" id="password" name="password"><br>
+            <input type="text" class="text-input" id="username" name="username" value="Mark"><br>
+            <input type="password" class="text-input" id="password" name="password" value="Miller"><br>
             <input type="submit" class="submit-button" value="Log in">
         </form>
     </div>
@@ -71,7 +71,7 @@
         function validateLogin() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
-            if (username === 'secretagent' && password === 'topsecret') {
+            if (username === 'Mark' && password === 'Miller') {
                 return true;
             } else {
                 return false;
