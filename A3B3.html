@@ -19,6 +19,13 @@
             text-align: center;
             z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
+        form {
+            margin-top: 2em;
+            z-index: 2; /* Ensure these elements sit on top of the coding background */
+        }
+        .hidden {
+            display: none;
+        }
         .background-text {
             position: absolute;
             white-space: pre;
@@ -37,7 +44,25 @@
             0% { transform: translateY(100%); }
             100% { transform: translateY(-100%); }
         }
-        /* rest of your styles */
+        /* Styling for the text input fields */
+        input[type="text"], input[type="password"] {
+            background-color: #000;
+            color: red;
+            border: 1px solid lime;
+            z-index: 2; /* Ensure these elements sit on top of the coding background */
+        }
+        /* Styling for the login button */
+        input[type="submit"] {
+            background-color: lime;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            z-index: 2; /* Ensure these elements sit on top of the coding background */
+        }
+        input[type="submit"]:hover {
+            background-color: #00ff00;
+        }
     </style>
 </head>
 <body>
@@ -51,6 +76,21 @@
 
         /* More code here */
     </pre>
-    <!-- rest of your HTML -->
-</body>
-</html>
+
+    <div id="login-page">
+        <h1>Secret Service Super Top Secret Website</h1>
+        <h2>Pay no attention to this website</h2>
+        <form id="login-form">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
+    <div id="cryptogram-page" class="hidden">
+        <h1>Decode the Cryptogram</h1>
+        <p>XYPZ YR XIY WYWRWMKI</p>
+        <form id="answer-form">
+            <label for="answer">Your Answer: </label>
+            <input type="text" id="answer" name="
