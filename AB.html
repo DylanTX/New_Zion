@@ -50,21 +50,23 @@
         <h3>Follow the blue when the rooster crows</h3>
     </div>
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('login-page').classList.add('hidden');
-            document.getElementById('cryptogram-page').classList.remove('hidden');
-        });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('cryptogram-page').classList.remove('hidden');
+            });
 
-        document.getElementById('answer-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var answer = document.getElementById('answer').value;
-            if (answer.toLowerCase() === "turn up the sunshine") {
-                document.getElementById('cryptogram-page').classList.add('hidden');
-                document.getElementById('clue-page').classList.remove('hidden');
-            } else {
-                document.getElementById('error-message').classList.remove('hidden');
-            }
+            document.getElementById('answer-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var answer = document.getElementById('answer').value;
+                if (answer.toLowerCase() === "turn up the sunshine") {
+                    document.getElementById('cryptogram-page').classList.add('hidden');
+                    document.getElementById('clue-page').classList.remove('hidden');
+                } else {
+                    document.getElementById('error-message').classList.remove('hidden');
+                }
+            });
         });
     </script>
 </body>
