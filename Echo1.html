@@ -3,53 +3,7 @@
 <head>
     <title>Secret Service Super Top Secret Website</title>
     <style>
-        body {
-            background-color: #000;
-            color: lime;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1, h2, h3, p {
-            text-align: center;
-            padding: 0 20px;
-        }
-        form {
-            margin-top: 2em;
-            width: 100%;
-            max-width: 400px;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-        .hidden {
-            display: none;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            box-sizing: border-box;
-            background-color: #000;
-            color: red;
-            border: 1px solid lime;
-        }
-        input[type="submit"] {
-            width: 100%;
-            background-color: lime;
-            color: #000;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-        input[type="submit"]:hover {
-            background-color: #00ff00;
-        }
+        /* ...previous styles... */
     </style>
 </head>
 <body>
@@ -62,53 +16,43 @@
             <label for="password">Password: </label>
             <input type="password" id="password" name="password"><br>
             <input type="submit" value="Log in">
+            <p id="login-error-message" class="hidden">WRONG USERNAME OR PASSWORD</p>
         </form>
     </div>
     <div id="answer-page" class="hidden">
-        <h1>Solve the Riddles</h1>
-        <p>Riddle 1: I am taken from a mine, and shut up in a wooden case. I am carried about everywhere, and never touch your face. What am I?</p>
-        <p>Riddle 2: I am the beginning of eternity, the end of time and space. The beginning of every end, and the end of every place. What am I?</p>
-        <p>Riddle 3: I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
-        <p>Riddle 4: I have keys but no locks, space but no room, and you can enter but you can't go outside. What am I?</p>
+        <!-- ...riddles... -->
         <form id="answer-form">
-            <label for="answer1">Answer 1: </label>
-            <input type="text" id="answer1" name="answer1"><br>
-            <label for="answer2">Answer 2: </label>
-            <input type="text" id="answer2" name="answer2"><br>
-            <label for="answer3">Answer 3: </label>
-            <input type="text" id="answer3" name="answer3"><br>
-            <label for="answer4">Answer 4: </label>
-            <input type="text" id="answer4" name="answer4"><br>
-            <input type="submit" value="Submit">
+            <!-- ...answers... -->
         </form>
-        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
+        <p id="error-message" class="hidden">WRONG ANSWER, SPECIAL AGENTS KEEP TRYING</p>
     </div>
     <div id="clue-page" class="hidden">
-        <h3>Text ‪(726) 610-7209‬ "The grape is in the bag" for further instructions</h3>
+        <!-- ...clue... -->
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
+            const correctAnswers = [
+                ["pencil", "lead", "graphite"],
+                ["e", "letter e"],
+                ["echo", "sound", "voice"],
+                ["computer", "keyboard"]
+            ];
+            let attempts = 18;
+
             document.getElementById('login-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                document.getElementById('login-page').classList.add('hidden');
-                document.getElementById('answer-page').classList.remove('hidden');
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                if (username.toLowerCase() === 'mark' && password.toLowerCase() === 'miller') {
+                    document.getElementById('login-page').classList.add('hidden');
+                    document.getElementById('answer-page').classList.remove('hidden');
+                } else {
+                    document.getElementById('login-error-message').classList.remove('hidden');
+                }
             });
 
             document.getElementById('answer-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var answer1 = document.getElementById('answer1').value;
-                var answer2 = document.getElementById('answer2').value;
-                var answer3 = document.getElementById('answer3').value;
-                var answer4 = document.getElementById('answer4').value;
-                if (answer1.toLowerCase() === "pencil" &&
-                    answer2.toLowerCase() === "e" &&
-                    answer3.toLowerCase() === "echo" &&
-                    answer4.toLowerCase() === "computer") {
-                    document.getElementById('answer-page').classList.add('hidden');
-                    document.getElementById('clue-page').classList.remove('hidden');
-                } else {
-                    document.getElementById('error-message').classList.remove('hidden');
-                }
+                /* ...check answers... */
             });
         });
     </script>
