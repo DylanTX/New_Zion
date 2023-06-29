@@ -20,14 +20,23 @@
         </form>
     </div>
     <div id="answer-page" class="hidden">
-        <!-- ...riddles... -->
+        <h1>Solve the Riddles</h1>
+        <p id="attempts">Attempts remaining: <span id="attempts-value">18</span></p>
         <form id="answer-form">
-            <!-- ...answers... -->
+            <label for="answer1">Riddle 1: </label>
+            <input type="text" id="answer1" name="answer1"><br>
+            <label for="answer2">Riddle 2: </label>
+            <input type="text" id="answer2" name="answer2"><br>
+            <label for="answer3">Riddle 3: </label>
+            <input type="text" id="answer3" name="answer3"><br>
+            <label for="answer4">Riddle 4: </label>
+            <input type="text" id="answer4" name="answer4"><br>
+            <input type="submit" value="Submit">
         </form>
-        <p id="error-message" class="hidden">WRONG ANSWER, SPECIAL AGENTS KEEP TRYING</p>
+        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
     </div>
     <div id="clue-page" class="hidden">
-        <!-- ...clue... -->
+        <h3>Text ‪(726) 610-7209‬ "The grape is in the bag" for further instructions</h3>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -52,9 +61,10 @@
             });
 
             document.getElementById('answer-form').addEventListener('submit', function(event) {
-                /* ...check answers... */
-            });
-        });
-    </script>
-</body>
-</html>
+                event.preventDefault();
+                let allCorrect = true;
+                for (let i = 0; i < 4; i++) {
+                    const answer = document.getElementById('answer' + (i + 1)).value.toLowerCase();
+                    if (!correctAnswers[i].includes(answer)) {
+                        allCorrect = false;
+                        document.getElementById('
