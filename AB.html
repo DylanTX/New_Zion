@@ -1,95 +1,68 @@
+<!-- Login Page -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Secret Service Super Top Secret Website</title>
+    <title>Login</title>
     <style>
         body {
+            background-color: #000;
+            color: #fff;
             font-family: Arial, sans-serif;
-            background-color: #2d2d2d;
-            color: #00FF00;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100vh;
+        }
+        h1, h2 {
             text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
         }
         form {
-            display: flex;
-            flex-direction: column;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-        input {
-            margin-bottom: 20px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        p {
-            color: red;
-        }
-        h1 {
-            color: #FFFFFF;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px #000000;
-        }
-        h2 {
-            color: #FFFFFF;
-            font-size: 1.2em;
-            text-shadow: 1px 1px 2px #000000;
-        }
-        #cryptogram {
-            display: none;
-        }
-        #clue {
-            display: none;
+            margin-top: 2em;
         }
     </style>
 </head>
 <body>
     <h1>Secret Service Super Top Secret Website</h1>
     <h2>Pay no attention to this website</h2>
-    <div class="message">
-        <p>Trainees,</p>
-        <p>I have just been informed we have intercepted a top secret communicado from our intelligence office… Due to budget cuts I am having to task you all to work with your special operation task force groups to decode the message.</p>
-        <p>XYPZ YR XIY WYWRWMKI</p>
-        <p>Once you believe you have decoded the message properly, please navigate to our new Secret Service super top secret agent portal.</p>
-        <p>Here are listed your new agent credentials:</p>
-        <p>Username: Mark</p>
-        <p>Password: Miller</p>
-        <p>Below you will find a top secret scan code to the website.</p>
-    </div>
-    <p>Please log in with your super secret username and password to access the website:</p>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
+    <form action="cryptogram.html">
+        <label for="username">Username: </label>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password"><br>
         <input type="submit" value="Log in">
-        <p id="message"></p>
     </form>
+</body>
+</html>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            if (username === 'Mark' && password === 'Miller') {
-                document.getElementById('loginForm').style.display = 'none';
-                document.getElementsByClassName('message')[0].style.display = 'none';
-                document.getElementById('cryptogram').style.display = 'block';
-            } else {
-                document.getElementById('message').textContent = 'Incorrect username or password.';
-            }
-        });
-
-        document.getElementById('answerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var answer = document.getElementById('answer').value;
-
-            if (answer.toUpperCase() === 'TURN UP THE SUNSHINE') {
-                document.getElementById('
+<!-- Cryptogram Page -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cryptogram</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form {
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Decode the Cryptogram</h1>
+    <p>Your cryptogram here</p>
+    <form>
+        <label for="answer">Your Answer: </label>
+        <input type="text" id="answer" name="answer"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
