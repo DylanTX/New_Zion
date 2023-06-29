@@ -41,6 +41,9 @@
             font-size: 1.2em;
             text-shadow: 1px 1px 2px #000000;
         }
+        #cryptogram {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -53,6 +56,10 @@
         <input type="submit" value="Log in">
         <p id="message"></p>
     </form>
+    <div id="cryptogram">
+        <h2>Decode this message:</h2>
+        <p>GIVQA VP IXY WXTWMWOTI</p>
+    </div>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -62,7 +69,8 @@
             var password = document.getElementById('password').value;
 
             if (username === 'Mark' && password === 'Miller') {
-                window.location.href = "puzzle.html";
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('cryptogram').style.display = 'block';
             } else {
                 document.getElementById('message').textContent = 'Incorrect username or password.';
             }
