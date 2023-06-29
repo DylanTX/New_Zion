@@ -12,6 +12,29 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            overflow: hidden; /* hide the overflow */
+            position: relative; /* allow the coding effect to be placed behind content */
+        }
+        /* add the coding effect */
+        .coding-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 2em;
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            transform: translateY(-100%);
+            animation: typing 10s steps(40, end) infinite, blink-caret .75s step-end infinite;
+        }
+        /* typing animation */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        /* cursor blinking animation */
+        @keyframes blink-caret {
+            50% { border-color: transparent }
         }
         h1, h2, h3, p {
             text-align: center;
@@ -22,13 +45,11 @@
         .hidden {
             display: none;
         }
-        /* Styling for the text input fields */
         input[type="text"], input[type="password"] {
             background-color: #000;
             color: red;
             border: 1px solid lime;
         }
-        /* Styling for the login button */
         input[type="submit"] {
             background-color: lime;
             color: #000;
@@ -42,6 +63,9 @@
     </style>
 </head>
 <body>
+    <!-- coding effect -->
+    <div class="coding-effect">var x = "Hello, World!"; function hello() { alert(x); }</div>
+    
     <div id="login-page">
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
@@ -66,25 +90,4 @@
     <div id="clue-page" class="hidden">
         <h3>Follow the blue when the rooster crows</h3>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('login-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                document.getElementById('login-page').classList.add('hidden');
-                document.getElementById('cryptogram-page').classList.remove('hidden');
-            });
-
-            document.getElementById('answer-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                var answer = document.getElementById('answer').value;
-                if (answer.toLowerCase() === "turn up the sunshine") {
-                    document.getElementById('cryptogram-page').classList.add('hidden');
-                    document.getElementById('clue-page').classList.remove('hidden');
-                } else {
-                    document.getElementById('error-message').classList.remove('hidden');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+    <
