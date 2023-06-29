@@ -52,23 +52,23 @@
 <body>
     <h1>Secret Service Super Top Secret Website</h1>
     <h2>Pay no attention to this website</h2>
-    <div id="loginPage">
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username">
-            <input type="password" id="password" placeholder="Password">
-            <input type="submit" value="Log in">
-            <p id="message"></p>
-        </form>
+    <div class="message">
+        <p>Trainees,</p>
+        <p>I have just been informed we have intercepted a top secret communicado from our intelligence office… Due to budget cuts I am having to task you all to work with your special operation task force groups to decode the message.</p>
+        <p>XYPZ YR XIY WYWRWMKI</p>
+        <p>Once you believe you have decoded the message properly, please navigate to our new Secret Service super top secret agent portal.</p>
+        <p>Here are listed your new agent credentials:</p>
+        <p>Username: Mark</p>
+        <p>Password: Miller</p>
+        <p>Below you will find a top secret scan code to the website.</p>
     </div>
-    <div id="cryptogram">
-        <h2>Decode this message:</h2>
-        <p>GIVQA VP IXY WXTWMWOTI</p>
-        <form id="answerForm">
-            <input type="text" id="answer" placeholder="Enter your answer">
-            <input type="submit" value="Submit">
-            <p id="clue"></p>
-        </form>
-    </div>
+    <p>Please log in with your super secret username and password to access the website:</p>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <input type="submit" value="Log in">
+        <p id="message"></p>
+    </form>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -78,7 +78,8 @@
             var password = document.getElementById('password').value;
 
             if (username === 'Mark' && password === 'Miller') {
-                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementsByClassName('message')[0].style.display = 'none';
                 document.getElementById('cryptogram').style.display = 'block';
             } else {
                 document.getElementById('message').textContent = 'Incorrect username or password.';
@@ -91,14 +92,4 @@
             var answer = document.getElementById('answer').value;
 
             if (answer.toUpperCase() === 'TURN UP THE SUNSHINE') {
-                document.getElementById('clue').textContent = 'Clue: Follow the blue when the rooster crows';
-                document.getElementById('clue').style.display = 'block';
-            } else {
-                document.getElementById('clue').textContent = 'Incorrect answer. Try again.';
-                document.getElementById('clue').style.display = 'block';
-            }
-        });
-    </script>
-</body>
-</html>
-``
+                document.getElementById('
