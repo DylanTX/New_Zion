@@ -25,6 +25,7 @@
         }
         .hidden {
             display: none;
+            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
         .background-text {
             position: absolute;
@@ -39,6 +40,7 @@
             right: 0;
             top: 0;
             bottom: 0;
+            z-index: 1; /* Ensure this element stays behind the rest of the content */
         }
         @keyframes flow {
             0% { transform: translateY(100%); }
@@ -68,55 +70,22 @@
 <body>
     <!-- add your moving background text here -->
     <pre class="background-text">
-function helloWorld() {
-    console.log('Hello, World!');
-}
+/* Here you would insert your 50 lines of meaningless code */
+    </pre>
 
-helloWorld();
+    <div id="login-page">
+        <h1>Secret Service Super Top Secret Website</h1>
+        <h2>Pay no attention to this website</h2>
+        <form id="login-form">
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
 
-// Other random code lines
-
-var x = 10;
-var y = 20;
-var z = x + y;
-console.log(z);
-
-function addNumbers(a, b) {
-    return a + b;
-}
-
-var sum = addNumbers(5, 10);
-console.log(sum);
-
-for (var i = 0; i < 10; i++) {
-    console.log(i);
-}
-
-var fruits = ["apple", "banana", "cherry"];
-fruits.forEach(function(fruit) {
-    console.log(fruit);
-});
-
-var person = {
-    firstName: "John",
-    lastName: "Doe",
-    age: 30
-};
-
-console.log(person.firstName);
-
-function greet(name) {
-    return "Hello, " + name;
-}
-
-var greeting = greet("Alice");
-console.log(greeting);
-
-var numbers = [1, 2, 3, 4, 5];
-var squaredNumbers = numbers.map(function(number) {
-    return number * number;
-});
-
-console.log(squaredNumbers);
-
-// More and more lines of meaningless code...
+    <div id="cryptogram-page" class="hidden">
+        <h1>Decode the Cryptogram</h1>
+        <p>XYPZ YR XIY WYWRWMKI</p>
+        <form id="
