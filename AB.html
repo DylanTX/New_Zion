@@ -49,7 +49,7 @@
     <div id="login-page">
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
-        <form id="login-form">
+        <form id="login-form" onsubmit="return validateLogin()">
             <input type="text" class="text-input" id="username" name="username"><br>
             <input type="password" class="text-input" id="password" name="password"><br>
             <input type="submit" class="submit-button" value="Log in">
@@ -68,23 +68,15 @@
         <h3>Follow the blue when the rooster crows</h3>
     </div>
     <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            document.getElementById('login-page').classList.add('hidden');
-            document.getElementById('cryptogram-page').classList.remove('hidden');
-        });
-
-        document.getElementById('answer-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var answer = document.getElementById('answer').value;
-            if (answer.toLowerCase() === "turn up the sunshine") {
-                document.getElementById('cryptogram-page').classList.add('hidden');
-                document.getElementById('clue-page').classList.remove('hidden');
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            if (username === 'secretagent' && password === 'topsecret') {
+                return true;
             } else {
-                document.getElementById('error-message').classList.remove('hidden');
+                return false;
             }
-        });
+        }
     </script>
 </body>
 </html>
-
