@@ -68,7 +68,250 @@
     </style>
 </head>
 <body>
-    <!-- add your moving background text here -->
+    <!-- import numpy as np
+
+# Utility function to calculate the factorial of a number
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+# Base class representing a shape
+class Shape:
+    def __init__(self, color):
+        self.color = color
+    
+    def area(self):
+        pass
+
+# Derived class representing a rectangle
+class Rectangle(Shape):
+    def __init__(self, color, width, height):
+        super().__init__(color)
+        self.width = width * 2
+        self.height = height * 2
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+# Derived class representing a circle
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius * 2
+    
+    def area(self):
+        return np.pi * self.radius**2
+    
+    def circumference(self):
+        return 2 * np.pi * self.radius
+
+# Function to generate a Fibonacci sequence up to a given number
+def fibonacci(n):
+    sequence = [0, 1]
+    while len(sequence) < n:
+        next_number = sequence[-1] + sequence[-2]
+        sequence.append(next_number)
+    return sequence
+
+# Main block
+if __name__ == "__main__":
+    # Calculate factorial of a number
+    print(factorial(5))
+    
+    # Create a rectangle instance and calculate its area and perimeter
+    rectangle = Rectangle("blue", 4, 5)
+    print(rectangle.area())
+    print(rectangle.perimeter())
+    
+    # Create a circle instance and calculate its area and circumference
+    circle = Circle("red", 3)
+    print(circle.area())
+    print(circle.circumference())
+    
+    # Generate a Fibonacci sequence
+    fib_sequence = fibonacci(10)
+    print(fib_sequence)
+    
+    # Additional functionality...
+    # ...
+
+    # Define a function to check if a number is prime
+    def is_prime(number):
+        if number < 2:
+            return False
+        for i in range(2, int(np.sqrt(number)) + 1):
+            if number % i == 0:
+                return False
+        return True
+
+    # Check if a number is prime
+    print(is_prime(17))
+    
+    # Calculate the sum of squares of numbers up to n
+    def sum_of_squares(n):
+        return sum([i**2 for i in range(1, n+1)])
+
+    print(sum_of_squares(5))
+    
+    # Perform matrix operations
+    matrix_a = np.array([[1, 2], [3, 4]])
+    matrix_b = np.array([[5, 6], [7, 8]])
+    matrix_sum = matrix_a + matrix_b
+    matrix_product = np.dot(matrix_a, matrix_b)
+    print(matrix_sum)
+    print(matrix_product)
+    
+    # Define a recursive function to calculate the nth Fibonacci number
+    def recursive_fibonacci(n):
+        if n <= 1:
+            return n
+        else:
+            return recursive_fibonacci(n-1) + recursive_fibonacci(n-2)
+
+    # Calculate the nth Fibonacci number using recursion
+    print(recursive_fibonacci(6))
+
+    # Additional functionality...
+    # ...
+    
+    # Define a class to represent a person
+    class Person:
+        def __init__(self, name, age):
+            self.name = name
+            self.age = age
+        
+        def introduce(self):
+            print(f"My name is {self.name} and I am {self.age} years old.")
+
+    # Create a person instance and call the introduce method
+    person = Person("Alice", 25)
+    person.introduce()
+    
+    # Additional functionality...
+    # ...
+    
+    # Define a function to count the number of vowels in a string
+    def count_vowels(string):
+        vowels = "aeiou"
+        count = 0
+        for char in string:
+            if char.lower() in vowels:
+                count += 1
+        return count
+
+    # Count the number of vowels in a string
+    print(count_vowels("Hello, World!"))
+
+    # Additional functionality...
+    # ...
+    
+    # Define a class to represent a car
+    class Car:
+        def __init__(self, make, model, year):
+            self.make = make
+            self.model = model
+            self.year = year
+        
+        def drive(self):
+            print(f"Driving the {self.make} {self.model}!")
+
+    # Create a car instance and call the drive method
+    car = Car("Toyota", "Camry", 2021)
+    car.drive()
+    
+    # Additional functionality...
+    # ...
+    
+    # Define a function to reverse a string
+    def reverse_string(string):
+        return string[::-1]
+
+    # Reverse a string
+    print(reverse_string("Hello, World!"))
+
+    # Additional functionality...
+    # ...
+    
+    # Define a class to represent a book
+    class Book:
+        def __init__(self, title, author):
+            self.title = title
+            self.author = author
+        
+        def display(self):
+            print(f"{self.title} by {self.author}")
+
+    # Create a book instance and call the display method
+    book = Book("Python Crash Course", "Eric Matthes")
+    book.display()
+    
+    # Additional functionality...
+    # ...
+    
+    # Define a function to find the maximum element in a list
+    def find_max(numbers):
+        if not numbers:
+            return None
+        max_num = numbers[0]
+        for num in numbers:
+            if num > max_num:
+                max_num = num
+        return max_num
+
+    # Find the maximum element in a list
+    print(find_max([3, 7, 2, 9, 1, 5]))
+
+    # Additional functionality...
+    # ...
+
+    # Define a class to represent a student
+    class Student:
+        def __init__(self, name, grade):
+            self.name = name
+            self.grade = grade
+        
+        def get_grade(self):
+            return self.grade
+
+    # Create student instances and get their grades
+    student1 = Student("Alice", 95)
+    student2 = Student("Bob", 82)
+    print(student1.get_grade())
+    print(student2.get_grade())
+
+    # Additional functionality...
+    # ...
+    
+    # Define a function to calculate the sum of all even numbers up to n
+    def sum_of_evens(n):
+        return sum([i for i in range(2, n+1, 2)])
+
+    # Calculate the sum of even numbers up to a given limit
+    print(sum_of_evens(10))
+    
+    # Additional functionality...
+    # ...
+    
+    # Define a class to represent a bank account
+    class BankAccount:
+        def __init__(self, account_number, balance=0):
+            self.account_number = account_number
+            self.balance = balance
+        
+        def deposit(self, amount):
+            self.balance += amount
+        
+        def withdraw(self, amount):
+            if amount > self.balance:
+                print("Insufficient balance.")
+            else:
+               
+ -->
     <pre class="background-text">
 /* Here you would insert your 50 lines of meaningless code */
     </pre>
