@@ -52,12 +52,14 @@
 <body>
     <h1>Secret Service Super Top Secret Website</h1>
     <h2>Pay no attention to this website</h2>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <input type="submit" value="Log in">
-        <p id="message"></p>
-    </form>
+    <div id="loginPage">
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <input type="submit" value="Log in">
+            <p id="message"></p>
+        </form>
+    </div>
     <div id="cryptogram">
         <h2>Decode this message:</h2>
         <p>GIVQA VP IXY WXTWMWOTI</p>
@@ -76,7 +78,7 @@
             var password = document.getElementById('password').value;
 
             if (username === 'Mark' && password === 'Miller') {
-                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('loginPage').style.display = 'none';
                 document.getElementById('cryptogram').style.display = 'block';
             } else {
                 document.getElementById('message').textContent = 'Incorrect username or password.';
@@ -99,3 +101,4 @@
     </script>
 </body>
 </html>
+``
