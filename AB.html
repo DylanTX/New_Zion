@@ -49,9 +49,9 @@
     <div id="login-page">
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
-        <form id="login-form" onsubmit="return validateLogin()">
+        <form id="login-form">
             <input type="text" class="text-input" id="username" name="username" value="Mark"><br>
-            <input type="password" class="text-input" id="password" name="password" value="Miller"><br>
+            <input type="password" class="text-input" id="password" name="password"><br>
             <input type="submit" class="submit-button" value="Log in">
         </form>
     </div>
@@ -67,18 +67,5 @@
     <div id="clue-page" class="hidden">
         <h3>Follow the blue when the rooster crows</h3>
     </div>
-    <script>
-        function validateLogin() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            if (username === 'Mark' && password === 'Miller') {
-                document.getElementById('login-form').style.display = 'none';
-                document.getElementById('cryptogram-page').style.display = 'block';
-            } else {
-                return false;
-            }
-        }
-    </script>
 </body>
 </html>
-
