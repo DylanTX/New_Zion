@@ -12,55 +12,27 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            position: relative; /* Allows coding background to stay behind other elements */
-            overflow: hidden; /* Keeps any content outside of the body from being visible */
         }
         h1, h2, h3, p {
             text-align: center;
-            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
         form {
             margin-top: 2em;
-            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
         .hidden {
             display: none;
-            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
-        .background-text {
-            position: absolute;
-            white-space: pre;
-            font-family: 'Courier New', monospace;
-            color: white;
-            font-size: 20px;
-            overflow: hidden;
-            animation: flow 60s linear infinite; /* Adjust time for longer text */
-            line-height: 26px;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            z-index: 1; /* Ensure this element stays behind the rest of the content */
-        }
-        @keyframes flow {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
-        /* Styling for the text input fields */
         input[type="text"], input[type="password"] {
             background-color: #000;
             color: red;
             border: 1px solid lime;
-            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
-        /* Styling for the login button */
         input[type="submit"] {
             background-color: lime;
             color: #000;
             border: none;
             cursor: pointer;
             padding: 5px 10px;
-            z-index: 2; /* Ensure these elements sit on top of the coding background */
         }
         input[type="submit"]:hover {
             background-color: #00ff00;
@@ -68,11 +40,6 @@
     </style>
 </head>
 <body>
-    <!-- test23 -->
-    <pre class="background-text">
-/* Here you would insert your 50 lines of meaningless code */
-    </pre>
-
     <div id="login-page">
         <h1>Secret Service Super Top Secret Website</h1>
         <h2>Pay no attention to this website</h2>
@@ -84,8 +51,38 @@
             <input type="submit" value="Log in">
         </form>
     </div>
-
     <div id="cryptogram-page" class="hidden">
         <h1>Decode the Cryptogram</h1>
         <p>XYPZ YR XIY WYWRWMKI</p>
-        <form id="
+        <form id="answer-form">
+            <label for="answer">Your Answer: </label>
+            <input type="text" id="answer" name="answer"><br>
+            <input type="submit" value="Submit">
+        </form>
+        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
+    </div>
+    <div id="clue-page" class="hidden">
+        <h3>Follow the blue when the rooster crows</h3>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('login-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                document.getElementById('login-page').classList.add('hidden');
+                document.getElementById('cryptogram-page').classList.remove('hidden');
+            });
+
+            document.getElementById('answer-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var answer = document.getElementById('answer').value;
+                if (answer.toLowerCase() === "turn up the sunshine") {
+                    document.getElementById('cryptogram-page').classList.add('hidden');
+                    document.getElementById('clue-page').classList.remove('hidden');
+                } else {
+                    document.getElementById('error-message').classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
