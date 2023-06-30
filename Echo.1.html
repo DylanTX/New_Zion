@@ -89,16 +89,23 @@
 
             <input type="submit" value="Submit">
         </form>
+        <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
     </div>
     <div id="clue-page" class="hidden">
-        <h3>Text ‪(726) 610-7209‬ "The grape is in the bag" for further instructions</h3>
+        <h3>New Intel discovered! Text ‪(726) 610-7209‬ "KAKAKAKADUDUDALDOOOOOOOOOOOO22" for more specific intel</h3>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('login-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                document.getElementById('login-page').classList.add('hidden');
-                document.getElementById('answer-page').classList.remove('hidden');
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                if (username === "mark" && password === "miller") {
+                    document.getElementById('login-page').classList.add('hidden');
+                    document.getElementById('answer-page').classList.remove('hidden');
+                } else {
+                    alert('Wrong username or password!');
+                }
             });
 
             document.getElementById('answer-form').addEventListener('submit', function(event) {
@@ -108,34 +115,36 @@
                 var answer3 = document.getElementById('answer3').value;
                 var answer4 = document.getElementById('answer4').value;
 
-                if (answer1.toLowerCase() !== "pencil") {
+                var correctAnswer1 = ["pencil", "a pencil"];
+                var correctAnswer2 = ["e", "the letter e"];
+                var correctAnswer3 = ["echo"];
+                var correctAnswer4 = ["keyboard", "computer", "a keyboard", "a computer"];
+
+                document.getElementById('error1').classList.add('hidden');
+                document.getElementById('error2').classList.add('hidden');
+                document.getElementById('error3').classList.add('hidden');
+                document.getElementById('error4').classList.add('hidden');
+
+                if (!correctAnswer1.includes(answer1.toLowerCase())) {
                     document.getElementById('error1').classList.remove('hidden');
-                } else {
-                    document.getElementById('error1').classList.add('hidden');
                 }
 
-                if (answer2.toLowerCase() !== "e") {
+                if (!correctAnswer2.includes(answer2.toLowerCase())) {
                     document.getElementById('error2').classList.remove('hidden');
-                } else {
-                    document.getElementById('error2').classList.add('hidden');
                 }
 
-                if (answer3.toLowerCase() !== "echo") {
+                if (!correctAnswer3.includes(answer3.toLowerCase())) {
                     document.getElementById('error3').classList.remove('hidden');
-                } else {
-                    document.getElementById('error3').classList.add('hidden');
                 }
 
-                if (answer4.toLowerCase() !== "computer") {
+                if (!correctAnswer4.includes(answer4.toLowerCase())) {
                     document.getElementById('error4').classList.remove('hidden');
-                } else {
-                    document.getElementById('error4').classList.add('hidden');
                 }
 
-                if (answer1.toLowerCase() === "pencil" &&
-                    answer2.toLowerCase() === "e" &&
-                    answer3.toLowerCase() === "echo" &&
-                    answer4.toLowerCase() === "computer") {
+                if (correctAnswer1.includes(answer1.toLowerCase()) &&
+                    correctAnswer2.includes(answer2.toLowerCase()) &&
+                    correctAnswer3.includes(answer3.toLowerCase()) &&
+                    correctAnswer4.includes(answer4.toLowerCase())) {
                     document.getElementById('answer-page').classList.add('hidden');
                     document.getElementById('clue-page').classList.remove('hidden');
                 }
