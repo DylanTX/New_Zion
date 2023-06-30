@@ -66,23 +66,23 @@
     </div>
     <div id="answer-page" class="hidden">
         <h1>Solve the Riddles</h1>
-        <p>Riddle 1: I am taken from a mine, and shut up in a wooden case. I am carried about everywhere, and never touch your face. What am I?</p>
-        <p>Riddle 2: I am the beginning of eternity, the end of time and space. The beginning of every end, and the end of every place. What am I?</p>
-        <p>Riddle 3: I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
-        <p>Riddle 4: I have keys but no locks, space but no room, and you can enter but you can't go outside. What am I?</p>
         <form id="answer-form">
+            <p>Riddle 1: I am taken from a mine, and shut up in a wooden case. I am carried about everywhere, and never touch your face. What am I?</p>
             <label for="answer1">Answer 1: </label>
             <input type="text" id="answer1" name="answer1"><br>
             <p id="error1" class="hidden" style="color: red;">Wrong answer for Riddle 1.</p>
 
+            <p>Riddle 2: I am the beginning of eternity, the end of time and space. The beginning of every end, and the end of every place. What am I?</p>
             <label for="answer2">Answer 2: </label>
             <input type="text" id="answer2" name="answer2"><br>
             <p id="error2" class="hidden" style="color: red;">Wrong answer for Riddle 2.</p>
 
+            <p>Riddle 3: I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
             <label for="answer3">Answer 3: </label>
             <input type="text" id="answer3" name="answer3"><br>
             <p id="error3" class="hidden" style="color: red;">Wrong answer for Riddle 3.</p>
 
+            <p>Riddle 4: I have keys but no locks, space but no room, and you can enter but you can't go outside. What am I?</p>
             <label for="answer4">Answer 4: </label>
             <input type="text" id="answer4" name="answer4"><br>
             <p id="error4" class="hidden" style="color: red;">Wrong answer for Riddle 4.</p>
@@ -100,7 +100,7 @@
                 event.preventDefault();
                 var username = document.getElementById('username').value;
                 var password = document.getElementById('password').value;
-                if (username === "mark" && password === "miller") {
+                if (username.toLowerCase() === "mark" && password.toLowerCase() === "miller") {
                     document.getElementById('login-page').classList.add('hidden');
                     document.getElementById('answer-page').classList.remove('hidden');
                 } else {
