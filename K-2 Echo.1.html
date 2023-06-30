@@ -67,32 +67,14 @@
     <div id="answer-page" class="hidden">
         <h1>Solve the Riddles</h1>
         <form id="answer-form">
-            <p>Riddle 1: I am taken from a mine, and shut up in a wooden case. I am carried about everywhere, and never touch your face. What am I?</p>
-            <label for="answer1">Answer 1: </label>
+            <p id="riddle1">I am taken from a mine, and shut up in a wooden case. I am carried about everywhere, and never touch your face. What am I?</p>
             <input type="text" id="answer1" name="answer1"><br>
-            <p id="error1" class="hidden" style="color: red;">Wrong answer for Riddle 1.</p>
-
-            <p>Riddle 2: I am the beginning of eternity, the end of time and space. The beginning of every end, and the end of every place. What am I?</p>
-            <label for="answer2">Answer 2: </label>
-            <input type="text" id="answer2" name="answer2"><br>
-            <p id="error2" class="hidden" style="color: red;">Wrong answer for Riddle 2.</p>
-
-            <p>Riddle 3: I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?</p>
-            <label for="answer3">Answer 3: </label>
-            <input type="text" id="answer3" name="answer3"><br>
-            <p id="error3" class="hidden" style="color: red;">Wrong answer for Riddle 3.</p>
-
-            <p>Riddle 4: I have keys but no locks, space but no room, and you can enter but you can't go outside. What am I?</p>
-            <label for="answer4">Answer 4: </label>
-            <input type="text" id="answer4" name="answer4"><br>
-            <p id="error4" class="hidden" style="color: red;">Wrong answer for Riddle 4.</p>
-
             <input type="submit" value="Submit">
         </form>
         <p id="error-message" class="hidden">WRONG SPECIAL AGENTS KEEP TRYING</p>
-    </div>
-    <div id="clue-page" class="hidden">
-        <h3>New Intel discovered! Text ‪(726) 610-7209‬ "KAKAKAKADUDUDALDOOOOOOOOOOOO22" for more specific intel</h3>
+        <p id="clue-page" class="hidden">
+            <h3>New Intel discovered! Text ‪(726) 610-7209‬ "KAKAKAKADUDUDALDOOOOOOOOOOOO22" for more specific intel</h3>
+        </p>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -110,46 +92,4 @@
 
             document.getElementById('answer-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                var answer1 = document.getElementById('answer1').value;
-                var answer2 = document.getElementById('answer2').value;
-                var answer3 = document.getElementById('answer3').value;
-                var answer4 = document.getElementById('answer4').value;
-
-                var correctAnswer1 = ["pencil", "a pencil"];
-                var correctAnswer2 = ["e", "the letter e"];
-                var correctAnswer3 = ["echo"];
-                var correctAnswer4 = ["keyboard", "computer", "a keyboard", "a computer"];
-
-                document.getElementById('error1').classList.add('hidden');
-                document.getElementById('error2').classList.add('hidden');
-                document.getElementById('error3').classList.add('hidden');
-                document.getElementById('error4').classList.add('hidden');
-
-                if (!correctAnswer1.includes(answer1.toLowerCase())) {
-                    document.getElementById('error1').classList.remove('hidden');
-                }
-
-                if (!correctAnswer2.includes(answer2.toLowerCase())) {
-                    document.getElementById('error2').classList.remove('hidden');
-                }
-
-                if (!correctAnswer3.includes(answer3.toLowerCase())) {
-                    document.getElementById('error3').classList.remove('hidden');
-                }
-
-                if (!correctAnswer4.includes(answer4.toLowerCase())) {
-                    document.getElementById('error4').classList.remove('hidden');
-                }
-
-                if (correctAnswer1.includes(answer1.toLowerCase()) &&
-                    correctAnswer2.includes(answer2.toLowerCase()) &&
-                    correctAnswer3.includes(answer3.toLowerCase()) &&
-                    correctAnswer4.includes(answer4.toLowerCase())) {
-                    document.getElementById('answer-page').classList.add('hidden');
-                    document.getElementById('clue-page').classList.remove('hidden');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                var answer1 = document.getElementById('answer1').value
