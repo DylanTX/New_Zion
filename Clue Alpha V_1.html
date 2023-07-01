@@ -79,14 +79,29 @@
         <p>4456783</p>
     </div>
     <script>
+        function obfuscate(str) {
+            let obfuscated = '';
+            for(let i = 0; i < str.length; i++) {
+                obfuscated += String.fromCharCode(str.charCodeAt(i) + 3);
+            }
+            return obfuscated;
+        }
+
+        function deobfuscate(str) {
+            let deobfuscated = '';
+            for(let i = 0; i < str.length; i++) {
+                deobfuscated += String.fromCharCode(str.charCodeAt(i) - 3);
+            }
+            return deobfuscated;
+        }
+
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('login-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-
                 var username = document.getElementById('username').value.toLowerCase();
                 var password = document.getElementById('password').value.toLowerCase();
 
-                if (username === 'mark' && password === 'miller') {
+                if (username === deobfuscate('pdun') && password === deobfuscate('ploohu')) {
                     document.getElementById('login-page').classList.add('hidden');
                     document.getElementById('cryptogram-page').classList.remove('hidden');
                 }
@@ -95,7 +110,7 @@
             document.getElementById('answer-form').addEventListener('submit', function(event) {
                 event.preventDefault();
                 var answer = document.getElementById('answer').value.toLowerCase();
-                if (answer === "turn up the sunshine") {
+                if (answer === deobfuscate('wxuq xs wkh vxqvkqhb')) {
                     document.getElementById('cryptogram-page').classList.add('hidden');
                     document.getElementById('clue-page').classList.remove('hidden');
                 } else {
