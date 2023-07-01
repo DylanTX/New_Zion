@@ -82,14 +82,20 @@
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('login-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                document.getElementById('login-page').classList.add('hidden');
-                document.getElementById('cryptogram-page').classList.remove('hidden');
+
+                var username = document.getElementById('username').value.toLowerCase();
+                var password = document.getElementById('password').value.toLowerCase();
+
+                if (username === 'mark' && password === 'miller') {
+                    document.getElementById('login-page').classList.add('hidden');
+                    document.getElementById('cryptogram-page').classList.remove('hidden');
+                }
             });
 
             document.getElementById('answer-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                var answer = document.getElementById('answer').value;
-                if (answer.toLowerCase() === "turn up the sunshine") {
+                var answer = document.getElementById('answer').value.toLowerCase();
+                if (answer === "turn up the sunshine") {
                     document.getElementById('cryptogram-page').classList.add('hidden');
                     document.getElementById('clue-page').classList.remove('hidden');
                 } else {
